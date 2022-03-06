@@ -1,0 +1,2 @@
+select city,length(city) from station order by length(city) asc , city fetch first row only;
+select city,length(city) from station order by length(city) desc, city fetch first row only;
