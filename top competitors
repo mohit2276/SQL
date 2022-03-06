@@ -1,0 +1,15 @@
+
+/*
+    Enter your query here and follow these instructions:
+    1. Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
+    2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
+    3. Type your code immediately after comment. Don't leave any blank line.
+*/
+select h.hacker_id, h.name from Submissions as s join Hackers as h 
+on s.hacker_id = h.hacker_id 
+join Challenges as c on s.challenge_id = c.challenge_id
+join Difficulty as d on c.Difficulty_level = d.Difficulty_level
+where s.score = d.score 
+group by h.hacker_id, h.name 
+having count(*) > 1
+order by count(*) desc, h.hacker_id;
